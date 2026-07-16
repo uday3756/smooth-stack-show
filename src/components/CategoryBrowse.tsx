@@ -43,12 +43,12 @@ const FALLBACK = {
 
 export function CategoryBrowse({ activeCategory, onSelect }: CategoryBrowseProps) {
   return (
-    <section className="page-surface bg-foreground text-background">
+    <section className="page-surface bg-background text-foreground">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="text-center text-2xl font-bold tracking-tight text-background sm:text-3xl">
+        <h2 className="text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           Browse by Category
         </h2>
-        <p className="mx-auto mt-2 max-w-md text-center text-sm text-background/70">
+        <p className="mx-auto mt-2 max-w-md text-center text-sm text-foreground/70">
           Pick a category to filter what's on offer.
         </p>
 

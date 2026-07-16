@@ -2,176 +2,252 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* ============================================================
+   MONOCHROME SKIN THEMES
+   Each theme = ONE solid skin color used for background, header,
+   footer, and every section. Cards/surfaces are the same skin
+   nudged a few % lighter or darker so they still read as raised.
+   --foreground / --primary / etc. are an automatic contrast color
+   (near-black on light skins, near-white on dark skins) so text
+   and CTAs stay clearly visible on every skin.
+   ============================================================ */
+
+/* Default (Violet) — solid violet skin, white text */
 :root {
+  --background: #5b3fd6;
+  --foreground: #ffffff;
+  --surface: #6b52dc;
+  --surface-alt: #4e36bd;
+  --border: #7a63e3;
+  --muted: #e8e2ff;
+
+  --primary: #ffffff;
+  --primary-foreground: #5b3fd6;
+  --primary-soft: #7a63e3;
+  --secondary: #ffffff;
+  --secondary-foreground: #5b3fd6;
+  --accent: #ffffff;
+  --accent-foreground: #5b3fd6;
+
+  --party: #ffffff;
+  --party-foreground: #5b3fd6;
+}
+
+/* Snow — full white */
+:root[data-theme="snow"] {
   --background: #ffffff;
-  --foreground: #16162b;
-  --surface: #ffffff;
-  --surface-alt: #f6f7fb;
-  --border: #eceaf5;
-  --muted: #6b7280;
+  --foreground: #0a0a0a;
+  --surface: #f6f6f6;
+  --surface-alt: #ededed;
+  --border: #d4d4d4;
+  --muted: #52525b;
 
-  --primary: #5b3fd6;
+  --primary: #0a0a0a;
   --primary-foreground: #ffffff;
-  --primary-soft: #ede9fb;
-  --secondary: #7c5cf0;
+  --primary-soft: #ededed;
+  --secondary: #0a0a0a;
   --secondary-foreground: #ffffff;
-  --accent: #22c55e;
-  --accent-foreground: #052e16;
+  --accent: #0a0a0a;
+  --accent-foreground: #ffffff;
 
-  --party: #a78bfa;
+  --party: #0a0a0a;
   --party-foreground: #ffffff;
 }
 
-:root[data-theme="sunset"] {
-  --background: #fff7ed;
-  --foreground: #431407;
-  --surface: #ffffff;
-  --surface-alt: #ffedd5;
-  --border: #fed7aa;
-  --muted: #9a5b3a;
-
-  --primary: #f97316;
-  --primary-foreground: #ffffff;
-  --secondary: #f43f5e;
-  --secondary-foreground: #ffffff;
-  --accent: #facc15;
-  --accent-foreground: #422006;
-}
-
-:root[data-theme="forest"] {
-  --background: #f0fdf4;
-  --foreground: #052e1e;
-  --surface: #ffffff;
-  --surface-alt: #dcfce7;
-  --border: #bbf7d0;
-  --muted: #4b7a63;
-
-  --primary: #059669;
-  --primary-foreground: #ffffff;
-  --secondary: #0d9488;
-  --secondary-foreground: #ffffff;
-  --accent: #84cc16;
-  --accent-foreground: #1a2e05;
-}
-
-:root[data-theme="midnight"] {
-  --background: #0b0a17;
-  --foreground: #ede9fe;
-  --surface: #171427;
-  --surface-alt: #221d3b;
-  --border: #322a53;
-  --muted: #a5a0c4;
-
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  --secondary: #6366f1;
-  --secondary-foreground: #ffffff;
-  --accent: #f472b6;
-  --accent-foreground: #2b0f1e;
-}
-
-:root[data-theme="ocean"] {
-  --background: #f0f7fb;
-  --foreground: #0c2340;
-  --surface: #ffffff;
-  --surface-alt: #dbeaf3;
-  --border: #b8d4e8;
-  --muted: #4a6b82;
-
-  --primary: #1c7293;
-  --primary-foreground: #ffffff;
-  --secondary: #065a82;
-  --secondary-foreground: #ffffff;
-  --accent: #21295c;
-  --accent-foreground: #ffffff;
-}
-
-:root[data-theme="coral"] {
-  --background: #fcf6f5;
-  --foreground: #2f3c7e;
-  --surface: #ffffff;
-  --surface-alt: #ffe4e2;
-  --border: #fbc9c5;
-  --muted: #6b6a8a;
-
-  --primary: #f96167;
-  --primary-foreground: #ffffff;
-  --secondary: #2f3c7e;
-  --secondary-foreground: #ffffff;
-  --accent: #f9a825;
-  --accent-foreground: #3a2a05;
-}
-
-:root[data-theme="berry"] {
-  --background: #fff1f8;
-  --foreground: #3b0a2b;
-  --surface: #ffffff;
-  --surface-alt: #ffe4f1;
-  --border: #fbcfe8;
-  --muted: #86336a;
-
-  --primary: #db2777;
-  --primary-foreground: #ffffff;
-  --secondary: #a21caf;
-  --secondary-foreground: #ffffff;
-  --accent: #f472b6;
-  --accent-foreground: #3b0a2b;
-}
-
-:root[data-theme="cloud"] {
-  --background: #fafbfc;
-  --foreground: #0f1b3d;
-  --surface: #ffffff;
-  --surface-alt: #e8ecf1;
-  --border: #d5dbe4;
-  --muted: #64748b;
-
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #1e3a5f;
-  --secondary-foreground: #ffffff;
-  --accent: #f59e0b;
-  --accent-foreground: #3a2a05;
-}
-
+/* Noir — full black */
 :root[data-theme="noir"] {
   --background: #000000;
   --foreground: #fafafa;
-  --surface: #0c0c0c;
-  --surface-alt: #171717;
+  --surface: #0f0f0f;
+  --surface-alt: #1a1a1a;
   --border: #2a2a2a;
   --muted: #a1a1aa;
 
   --primary: #fafafa;
   --primary-foreground: #000000;
-  --primary-soft: #1f1f1f;
-  --secondary: #d4d4d8;
+  --primary-soft: #1a1a1a;
+  --secondary: #fafafa;
   --secondary-foreground: #000000;
   --accent: #fafafa;
   --accent-foreground: #000000;
 
-  --party: #d4d4d8;
+  --party: #fafafa;
   --party-foreground: #000000;
 }
 
-:root[data-theme="snow"] {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --surface: #ffffff;
-  --surface-alt: #f4f4f5;
-  --border: #e4e4e7;
-  --muted: #52525b;
+/* Sunset — solid orange */
+:root[data-theme="sunset"] {
+  --background: #f97316;
+  --foreground: #ffffff;
+  --surface: #fb8434;
+  --surface-alt: #e0630a;
+  --border: #fca35d;
+  --muted: #fff1e6;
 
-  --primary: #0a0a0a;
-  --primary-foreground: #ffffff;
-  --primary-soft: #f4f4f5;
-  --secondary: #3f3f46;
-  --secondary-foreground: #ffffff;
-  --accent: #0a0a0a;
-  --accent-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #f97316;
+  --primary-soft: #fca35d;
+  --secondary: #ffffff;
+  --secondary-foreground: #f97316;
+  --accent: #ffffff;
+  --accent-foreground: #f97316;
+}
 
-  --party: #3f3f46;
-  --party-foreground: #ffffff;
+/* Forest — solid green */
+:root[data-theme="forest"] {
+  --background: #059669;
+  --foreground: #ffffff;
+  --surface: #14a679;
+  --surface-alt: #04835a;
+  --border: #34c299;
+  --muted: #e6f7f1;
+
+  --primary: #ffffff;
+  --primary-foreground: #059669;
+  --primary-soft: #34c299;
+  --secondary: #ffffff;
+  --secondary-foreground: #059669;
+  --accent: #ffffff;
+  --accent-foreground: #059669;
+}
+
+/* Midnight — solid deep purple */
+:root[data-theme="midnight"] {
+  --background: #4c1d95;
+  --foreground: #f5f3ff;
+  --surface: #5b23ad;
+  --surface-alt: #3d177a;
+  --border: #6d33c1;
+  --muted: #ddd6fe;
+
+  --primary: #f5f3ff;
+  --primary-foreground: #4c1d95;
+  --primary-soft: #6d33c1;
+  --secondary: #f5f3ff;
+  --secondary-foreground: #4c1d95;
+  --accent: #f5f3ff;
+  --accent-foreground: #4c1d95;
+}
+
+/* Ocean — solid blue */
+:root[data-theme="ocean"] {
+  --background: #1c7293;
+  --foreground: #ffffff;
+  --surface: #2183a8;
+  --surface-alt: #155e7c;
+  --border: #3d9bc1;
+  --muted: #e2f1f7;
+
+  --primary: #ffffff;
+  --primary-foreground: #1c7293;
+  --primary-soft: #3d9bc1;
+  --secondary: #ffffff;
+  --secondary-foreground: #1c7293;
+  --accent: #ffffff;
+  --accent-foreground: #1c7293;
+}
+
+/* Coral — solid coral red */
+:root[data-theme="coral"] {
+  --background: #f96167;
+  --foreground: #ffffff;
+  --surface: #fa7379;
+  --surface-alt: #e04a50;
+  --border: #fc9297;
+  --muted: #ffece7;
+
+  --primary: #ffffff;
+  --primary-foreground: #f96167;
+  --primary-soft: #fc9297;
+  --secondary: #ffffff;
+  --secondary-foreground: #f96167;
+  --accent: #ffffff;
+  --accent-foreground: #f96167;
+}
+
+/* Berry — solid pink/magenta */
+:root[data-theme="berry"] {
+  --background: #db2777;
+  --foreground: #ffffff;
+  --surface: #e63d87;
+  --surface-alt: #c01865;
+  --border: #ec5f9d;
+  --muted: #fce4ef;
+
+  --primary: #ffffff;
+  --primary-foreground: #db2777;
+  --primary-soft: #ec5f9d;
+  --secondary: #ffffff;
+  --secondary-foreground: #db2777;
+  --accent: #ffffff;
+  --accent-foreground: #db2777;
+}
+
+/* Cloud — solid sky blue */
+:root[data-theme="cloud"] {
+  --background: #3b82f6;
+  --foreground: #ffffff;
+  --surface: #5091f7;
+  --surface-alt: #2c6dd8;
+  --border: #7aabf9;
+  --muted: #eaf2ff;
+
+  --primary: #ffffff;
+  --primary-foreground: #3b82f6;
+  --primary-soft: #7aabf9;
+  --secondary: #ffffff;
+  --secondary-foreground: #3b82f6;
+  --accent: #ffffff;
+  --accent-foreground: #3b82f6;
+}
+
+/* Obsidian — near-black with lime CTA */
+:root[data-theme="obsidian"] {
+  --background: #0a0a0a;
+  --foreground: #ebebeb;
+  --surface: #141414;
+  --surface-alt: #1c1c1c;
+  --border: #2a2a2a;
+  --muted: #9a9a9a;
+
+  --primary: #ccff00;
+  --primary-foreground: #0a0a0a;
+  --primary-soft: #1b2400;
+  --secondary: #ccff00;
+  --secondary-foreground: #0a0a0a;
+  --accent: #ccff00;
+  --accent-foreground: #0a0a0a;
+
+  --party: #ccff00;
+  --party-foreground: #0a0a0a;
+
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+}
+
+/* NeoBrutalist — solid yellow */
+:root[data-theme="neobrutalist"] {
+  --background: #ffe17c;
+  --foreground: #171e19;
+  --surface: #fff2c0;
+  --surface-alt: #f5d260;
+  --border: #171e19;
+  --muted: #3f3f3f;
+
+  --primary: #171e19;
+  --primary-foreground: #ffe17c;
+  --primary-soft: #fff2c0;
+  --secondary: #171e19;
+  --secondary-foreground: #ffe17c;
+  --accent: #171e19;
+  --accent-foreground: #ffe17c;
+
+  --party: #171e19;
+  --party-foreground: #ffe17c;
+
+  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cabinet Grotesk", "Space Grotesk", "Satoshi", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
@@ -200,71 +276,39 @@
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
 }
 
-/* ---------- Page-wide background (data-page-bg on <html>) ----------
-   When a page-wide background (e.g. the animated Gradient) is active, the big
-   section surfaces become semi-transparent so the fixed SiteBackground shows
-   through the whole page. The wash keeps each block's text as readable as
-   before: light-text sections keep a foreground-tinted wash, dark-text
-   sections keep a background-tinted wash. */
+/* ---------- Page-wide background wash ---------- */
 :root[data-page-bg] .page-surface {
-  background-color: color-mix(in oklch, var(--foreground) 62%, transparent) !important;
+  background-color: color-mix(in oklab, var(--background) 88%, transparent) !important;
 }
 :root[data-page-bg] .page-surface-light {
-  background-color: color-mix(in oklch, var(--background) 68%, transparent) !important;
+  background-color: color-mix(in oklab, var(--surface) 88%, transparent) !important;
 }
 
-/* ---------- Shape variants driven by [data-shape] on <html> ---------- */
-.shaped-edge {
-  position: relative;
-}
-/* The header uses `.shaped-edge` (position: relative) together with Tailwind's
-   `.sticky` utility. Because `.shaped-edge` is emitted later in the cascade with
-   equal specificity, it would override `position: sticky` and the header would
-   scroll away instead of staying pinned (breaking the hide/reveal-on-scroll).
-   This more-specific rule restores sticky positioning for the header only —
-   the footer keeps `position: relative`. */
-.shaped-header.shaped-edge {
-  position: sticky;
-  top: 0;
-}
+/* ---------- Shape variants ---------- */
+.shaped-edge { position: relative; }
+.shaped-header.shaped-edge { position: sticky; top: 0; }
 .shaped-edge::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   height: 18px;
   background: var(--surface);
   pointer-events: none;
   z-index: 1;
 }
-.shaped-header.shaped-edge::after {
-  bottom: -17px;
-}
-.shaped-footer.shaped-edge::after {
-  top: -17px;
-  background: var(--background);
-}
+.shaped-header.shaped-edge::after { bottom: -17px; }
+.shaped-footer.shaped-edge::after { top: -17px; background: var(--background); }
 
-/* Straight (default) — hide the shape strip */
-:root[data-shape="straight"] .shaped-edge::after {
-  display: none;
-}
+:root[data-shape="straight"] .shaped-edge::after { display: none; }
 
-/* Wave */
 :root[data-shape="wave"] .shaped-edge::after {
   -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 18' preserveAspectRatio='none'><path d='M0 0 Q30 24 60 9 T120 0 L120 18 L0 18 Z' fill='black'/></svg>");
   mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 18' preserveAspectRatio='none'><path d='M0 0 Q30 24 60 9 T120 0 L120 18 L0 18 Z' fill='black'/></svg>");
-  -webkit-mask-size: 120px 18px;
-  mask-size: 120px 18px;
-  -webkit-mask-repeat: repeat-x;
-  mask-repeat: repeat-x;
+  -webkit-mask-size: 120px 18px; mask-size: 120px 18px;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
 }
-.shaped-footer.shaped-edge:where([data-shape="wave"] *)::after,
-:root[data-shape="wave"] .shaped-footer.shaped-edge::after {
-  transform: scaleY(-1);
-}
+:root[data-shape="wave"] .shaped-footer.shaped-edge::after { transform: scaleY(-1); }
 
-/* Curve */
 :root[data-shape="curve"] .shaped-edge::after {
   -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, black 62%, transparent 63%);
   mask-image: radial-gradient(120% 100% at 50% 0%, black 62%, transparent 63%);
@@ -274,18 +318,13 @@
   mask-image: radial-gradient(120% 100% at 50% 100%, black 62%, transparent 63%);
 }
 
-/* Angle (zig-zag) */
 :root[data-shape="angle"] .shaped-edge::after {
   -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 18' preserveAspectRatio='none'><polygon points='0,0 20,18 40,0 40,18 0,18' fill='black'/></svg>");
   mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 18' preserveAspectRatio='none'><polygon points='0,0 20,18 40,0 40,18 0,18' fill='black'/></svg>");
-  -webkit-mask-size: 40px 18px;
-  mask-size: 40px 18px;
-  -webkit-mask-repeat: repeat-x;
-  mask-repeat: repeat-x;
+  -webkit-mask-size: 40px 18px; mask-size: 40px 18px;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
 }
-:root[data-shape="angle"] .shaped-footer.shaped-edge::after {
-  transform: scaleY(-1);
-}
+:root[data-shape="angle"] .shaped-footer.shaped-edge::after { transform: scaleY(-1); }
 
 .pattern-grid {
   background-image:
@@ -293,61 +332,31 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 22px 22px;
 }
-
 .pattern-diagonal {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.1) 0,
-    rgba(255, 255, 255, 0.1) 1px,
-    transparent 1px,
-    transparent 12px
-  );
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 12px);
 }
-
 .pattern-cross {
   background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.14) 0,
-      rgba(255, 255, 255, 0.14) 1px,
-      transparent 1px,
-      transparent 16px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.14) 0,
-      rgba(255, 255, 255, 0.14) 1px,
-      transparent 1px,
-      transparent 16px
-    );
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.14) 0, rgba(255,255,255,0.14) 1px, transparent 1px, transparent 16px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.14) 0, rgba(255,255,255,0.14) 1px, transparent 1px, transparent 16px);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 .hero-gradient {
   background:
     radial-gradient(60% 60% at 50% 0%, var(--color-primary-soft) 0%, transparent 70%),
-    linear-gradient(180deg, #fbfbfe 0%, #ffffff 100%);
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
 
   body {
     background: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    /* Crisper rendering + Inter's nicer letter shapes and proportional-but-
-       aligned figures for a more refined read. */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -356,14 +365,7 @@
     letter-spacing: -0.006em;
   }
 
-  /* Headings use the display face with tighter tracking + balanced wrapping so
-     titles sit as compact, confident blocks. */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.022em;
@@ -371,71 +373,40 @@
     text-wrap: balance;
   }
 
-  /* Prices, times and other tabular data line up in columns. */
-  .tabular-nums {
-    font-variant-numeric: tabular-nums;
-  }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
 }
 
 /* ============================================================
-   Obsidian — dark-mode-first "Obsidian & Lime" reskin.
-   A full color + font theme: every existing section, card and
-   animation stays in place and is simply re-dressed via the shared
-   CSS variables (background/foreground/surface/border/primary…).
+   Stacking scroll landing — glowing cards on any monochrome skin.
+   Glow is derived from --foreground (the contrast color) so a
+   card always separates itself from the skin background.
    ============================================================ */
-:root[data-theme="obsidian"] {
-  --background: #0a0a0a;
-  --foreground: #ebebeb;
-  --surface: #101010;
-  --surface-alt: #181818;
-  --border: #272727;
-  --muted: #9a9a9a;
+html { scroll-behavior: smooth; }
 
-  --primary: #ccff00;
-  --primary-foreground: #0a0a0a;
-  --primary-soft: #1b2400;
-  --secondary: #10b981;
-  --secondary-foreground: #04231a;
-  --accent: #ccff00;
-  --accent-foreground: #0a0a0a;
-
-  --party: #10b981;
-  --party-foreground: #04231a;
-
-  /* Space Grotesk everywhere; JetBrains Mono for any mono labels. */
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+.stack-card {
+  background: var(--surface);
+  color: var(--foreground);
+  border: 1px solid color-mix(in oklab, var(--foreground) 18%, var(--border));
+  border-radius: 1.25rem;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 8%, transparent),
+    0 20px 45px -20px color-mix(in oklab, var(--foreground) 40%, transparent),
+    0 0 40px -8px color-mix(in oklab, var(--foreground) 28%, transparent);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.stack-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--foreground) 25%, transparent),
+    0 30px 60px -20px color-mix(in oklab, var(--foreground) 60%, transparent),
+    0 0 60px -4px color-mix(in oklab, var(--foreground) 45%, transparent);
 }
 
-/* ============================================================
-   NeoBrutalist — bright "Yellow & Charcoal" reskin.
-   Signature golden-yellow canvas, near-black text, solid black
-   borders and white cards. Content is untouched; only the theme
-   variables and fonts change.
-   ============================================================ */
-:root[data-theme="neobrutalist"] {
-  --background: #ffe17c;
-  --foreground: #171e19;
-  --surface: #ffffff;
-  --surface-alt: #fff2c0;
-  --border: #000000;
-  --muted: #3f3f3f;
-
-  --primary: #171e19;
-  --primary-foreground: #ffffff;
-  --primary-soft: #fff2c0;
-  --secondary: #171e19;
-  --secondary-foreground: #ffffff;
-  --accent: #171e19;
-  --accent-foreground: #ffe17c;
-
-  --party: #171e19;
-  --party-foreground: #ffffff;
-
-  /* Real faces load from Fontshare; if that ever fails they degrade to the
-     already-loaded Google faces (Space Grotesk / Inter) so the theme still
-     reads as intentional rather than falling back to a bare system font. */
-  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Cabinet Grotesk", "Space Grotesk", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+.stack-panel {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+  color: var(--foreground);
 }
