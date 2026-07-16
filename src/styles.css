@@ -276,12 +276,18 @@
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
 }
 
-/* ---------- Page-wide background wash ---------- */
+/* ---------- Page-wide background wash ----------
+   When the animated gradient background is on, sections are semi-transparent
+   so the gradient shows through but a strong wash keeps text readable. */
 :root[data-page-bg] .page-surface {
-  background-color: color-mix(in oklab, var(--background) 88%, transparent) !important;
+  background-color: color-mix(in oklab, var(--background) 78%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 :root[data-page-bg] .page-surface-light {
-  background-color: color-mix(in oklab, var(--surface) 88%, transparent) !important;
+  background-color: color-mix(in oklab, var(--surface) 82%, transparent) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 /* ---------- Shape variants ---------- */

@@ -59,26 +59,25 @@ export const HERO_BACKGROUNDS: HeroBgDefinition[] = [
   { id: "gradient", label: "Gradient" },
 ];
 
-// Palette used by the animated "Gradient" hero background, per theme, so the
-// gradient always matches the header/footer colors. Kept in JS (not read from
-// CSS vars at runtime) so it is correct on first paint and never lags a theme
-// change. Order: base color first, then wave layers.
+// Palette for the animated Gradient hero background — monochrome variations
+// of each theme's single skin color so the gradient stays on-brand and the
+// foreground text (contrast color) remains readable over every layer.
 export const HERO_GRADIENT_COLORS: Record<ThemeId, string[]> = {
-  default: ["#5b3fd6", "#7c5cf0", "#22c55e", "#5b3fd6"],
-  sunset: ["#f97316", "#f43f5e", "#facc15", "#f97316"],
-  forest: ["#059669", "#0d9488", "#84cc16", "#059669"],
-  midnight: ["#7c3aed", "#6366f1", "#f472b6", "#7c3aed"],
-  ocean: ["#1c7293", "#065a82", "#21295c", "#1c7293"],
-  coral: ["#f96167", "#2f3c7e", "#f9a825", "#f96167"],
-  berry: ["#db2777", "#a21caf", "#f472b6", "#db2777"],
-  cloud: ["#3b82f6", "#1e3a5f", "#f59e0b", "#3b82f6"],
-  noir: ["#3f3f46", "#71717a", "#a1a1aa", "#52525b"],
-  snow: ["#0a0a0a", "#3f3f46", "#52525b", "#18181b"],
-  obsidian: ["#0a0a0a", "#ccff00", "#10b981", "#0a0a0a"],
-  neobrutalist: ["#ffe17c", "#171e19", "#ffffff", "#ffe17c"],
+  default:      ["#5b3fd6", "#4e36bd", "#7a63e3", "#3d2a99"],
+  sunset:       ["#f97316", "#e0630a", "#fb8434", "#c15208"],
+  forest:       ["#059669", "#04835a", "#14a679", "#036a49"],
+  midnight:     ["#4c1d95", "#3d177a", "#5b23ad", "#2e1160"],
+  ocean:        ["#1c7293", "#155e7c", "#2183a8", "#0f4a63"],
+  coral:        ["#f96167", "#e04a50", "#fa7379", "#c93b41"],
+  berry:        ["#db2777", "#c01865", "#e63d87", "#9c1354"],
+  cloud:        ["#3b82f6", "#2c6dd8", "#5091f7", "#1e5bb8"],
+  noir:         ["#000000", "#0f0f0f", "#1a1a1a", "#050505"],
+  snow:         ["#ffffff", "#f0f0f0", "#e2e2e2", "#f8f8f8"],
+  obsidian:     ["#0a0a0a", "#141414", "#1c1c1c", "#050505"],
+  neobrutalist: ["#ffe17c", "#f5d260", "#fff2c0", "#e5c247"],
 };
 
-export const DEFAULT_THEME: ThemeId = "default";
+export const DEFAULT_THEME: ThemeId = "snow";
 export const DEFAULT_SHAPE: ShapeId = "straight";
 export const DEFAULT_HERO_BG: HeroBgId = "image";
 
