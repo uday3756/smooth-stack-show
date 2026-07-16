@@ -62,11 +62,12 @@ export function Header() {
           top of the page — once scrolled, it collapses so the reveal-on-scroll-up
           brings back just the nav bar (not the ribbon). */}
       <div
+        style={{ backgroundColor: "#0f172a", color: "#facc15" }}
         className={cn(
-          "overflow-hidden bg-surface-alt text-foreground transition-all duration-300 ease-out",
+          "overflow-hidden transition-all duration-300 ease-out",
           scrolled
             ? "max-h-0 border-b-0 opacity-0"
-            : "max-h-12 border-b border-border/50 opacity-100",
+            : "max-h-12 opacity-100",
         )}
       >
         <div className="mx-auto flex h-9 max-w-6xl items-center justify-between gap-4 px-6 text-[11px] sm:text-xs">
