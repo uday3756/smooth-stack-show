@@ -1,0 +1,9 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <rect x="75" y="30" width="50" height="15" fill="#333333"/>
+  <path d="M 80 45 L 85 45 L 85 50 L 80 50 Z" fill="#666666"/>
+  <path d="M 115 45 L 120 45 L 120 50 L 115 50 Z" fill="#666666"/>
+  <path d="M 75 50 Q 70 80 75 140 Q 80 160 100 160 Q 120 160 125 140 Q 130 80 125 50 Z" fill="#5b3fd6"/>
+  <path d="M 80 60 Q 78 90 80 140" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.4"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">WATER BOTTLE</text>
+</svg>

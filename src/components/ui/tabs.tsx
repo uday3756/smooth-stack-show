@@ -1,53 +1,123 @@
-import * as React from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
-
+import { useState } from "react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-const Tabs = TabsPrimitive.Root;
+type Tab = {
+  title: string;
+  value: string;
+  href?: string;
+  content?: string | React.ReactNode;
+};
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(
-      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
-      className,
-    )}
-    {...props}
-  />
-));
-TabsList.displayName = TabsPrimitive.List.displayName;
+export const Tabs = ({
+  tabs: propTabs,
+  containerClassName,
+  activeTabClassName,
+  tabClassName,
+  contentClassName,
+  onTabClick,
+  showContent = true,
+}: {
+  tabs: Tab[];
+  containerClassName?: string;
+  activeTabClassName?: string;
+  tabClassName?: string;
+  contentClassName?: string;
+  onTabClick?: (tab: Tab) => void;
+  showContent?: boolean;
+}) => {
+  const [active, setActive] = useState(propTabs[0]);
+  const [tabs, setTabs] = useState(propTabs);
 
-const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
-      className,
-    )}
-    {...props}
-  />
-));
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+  const moveSelectedTabToTop = (idx: number) => {
+    const newTabs = [...propTabs];
+    const selectedTab = newTabs.splice(idx, 1);
+    newTabs.unshift(selectedTab[0]);
+    setTabs(newTabs);
+    setActive(newTabs[0]);
+  };
 
-const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn(
-      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      className,
-    )}
-    {...props}
-  />
-));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
+  const [hovering, setHovering] = useState(false);
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+  return (
+    <>
+      <div
+        className={cn(
+          "flex flex-row items-center justify-start relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          containerClassName,
+        )}
+      >
+        {propTabs.map((tab, idx) => (
+          <button
+            key={tab.value}
+            onClick={() => {
+              moveSelectedTabToTop(idx);
+              onTabClick?.(tab);
+            }}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            {active.value === tab.value && (
+              <motion.div
+                layoutId="clickedbutton"
+                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                className={cn(
+                  "absolute inset-0 bg-primary/10 rounded-full",
+                  activeTabClassName,
+                )}
+              />
+            )}
+            <span className="relative block text-foreground text-sm">
+              {tab.title}
+            </span>
+          </button>
+        ))}
+      </div>
+      {showContent && (
+        <FadeInDiv
+          tabs={tabs}
+          active={active}
+          key={active.value}
+          hovering={hovering}
+          className={cn("mt-8", contentClassName)}
+        />
+      )}
+    </>
+  );
+};
+
+export const FadeInDiv = ({
+  className,
+  tabs,
+  hovering,
+}: {
+  className?: string;
+  key?: string;
+  tabs: Tab[];
+  active: Tab;
+  hovering?: boolean;
+}) => {
+  const isActive = (tab: Tab) => tab.value === tabs[0].value;
+  return (
+    <div className="relative w-full h-full">
+      {tabs.map((tab, idx) => (
+        <motion.div
+          key={tab.value}
+          layoutId={tab.value}
+          style={{
+            scale: 1 - idx * 0.1,
+            top: hovering ? idx * -50 : 0,
+            zIndex: -idx,
+            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+          }}
+          animate={{ y: isActive(tab) ? [0, 40, 0] : 0 }}
+          className={cn("w-full h-full absolute top-0 left-0", className)}
+        >
+          {tab.content}
+        </motion.div>
+      ))}
+    </div>
+  );
+};

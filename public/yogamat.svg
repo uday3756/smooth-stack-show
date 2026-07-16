@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <rect x="30" y="50" width="140" height="100" fill="#059669" rx="5"/>
+  <rect x="30" y="50" width="140" height="100" fill="url(#matGradient)" rx="5"/>
+  <defs>
+    <linearGradient id="matGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="70" r="4" fill="#ffffff" opacity="0.3"/>
+  <circle cx="80" cy="85" r="4" fill="#ffffff" opacity="0.3"/>
+  <circle cx="120" cy="75" r="4" fill="#ffffff" opacity="0.3"/>
+  <circle cx="150" cy="100" r="4" fill="#ffffff" opacity="0.3"/>
+  <path d="M 35 60 Q 40 80 35 140" stroke="#ffffff" stroke-width="1" opacity="0.2" fill="none"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">YOGA MAT</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <ellipse cx="100" cy="50" rx="45" ry="15" fill="#6b7280"/>
+  <path d="M 55 50 L 50 140 Q 50 155 65 160 L 135 160 Q 150 155 150 140 L 145 50 Z" fill="#5b3fd6"/>
+  <path d="M 70 50 L 68 140" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 130 50 L 132 140" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <circle cx="85" cy="90" r="8" fill="#7c5cf0"/>
+  <circle cx="115" cy="90" r="8" fill="#7c5cf0"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">GYM BAG</text>
+</svg>

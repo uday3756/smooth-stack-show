@@ -1,0 +1,10 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <ellipse cx="100" cy="80" rx="50" ry="25" fill="#f97316" opacity="0.8"/>
+  <path d="M 50 80 Q 45 100 50 120" stroke="#f97316" stroke-width="8" fill="none"/>
+  <path d="M 150 80 Q 155 100 150 120" stroke="#f97316" stroke-width="8" fill="none"/>
+  <circle cx="100" cy="60" r="8" fill="#333333"/>
+  <circle cx="100" cy="100" r="8" fill="#333333"/>
+  <ellipse cx="100" cy="80" rx="45" ry="20" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">RESISTANCE BANDS</text>
+</svg>
