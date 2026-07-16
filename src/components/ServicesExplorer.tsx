@@ -14,9 +14,9 @@ export function ServicesExplorer() {
     <>
       <CategoryBrowse activeCategory={filter} onSelect={handleCategorySelect} />
 
-      <section id="services" className="page-surface scroll-mt-20 bg-foreground text-background">
+      <section id="services" className="page-surface scroll-mt-20 bg-background text-foreground">
         <div className="mx-auto max-w-6xl px-6 pb-20 pt-16">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-background">
+          <h2 className="text-center text-2xl font-bold tracking-tight text-foreground">
             Our Services
           </h2>
 

@@ -63,7 +63,7 @@ export function Header() {
           brings back just the nav bar (not the ribbon). */}
       <div
         className={cn(
-          "overflow-hidden bg-foreground text-background transition-all duration-300 ease-out",
+          "overflow-hidden bg-surface-alt text-foreground transition-all duration-300 ease-out",
           scrolled
             ? "max-h-0 border-b-0 opacity-0"
             : "max-h-12 border-b border-border/50 opacity-100",

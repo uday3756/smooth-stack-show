@@ -94,7 +94,7 @@ export function Hero() {
     { text: SITE.name, className: "text-primary" },
   ];
   return (
-    <section className="page-surface relative isolate border-b border-border bg-foreground text-background">
+    <section className="page-surface relative isolate border-b border-border bg-background text-foreground">
       {/* key forces the failed-state to reset when the mode or source changes */}
       <HeroBackgroundLayer
         key={`${heroBg}:${background.type === "color" ? "" : background.src}`}
@@ -104,7 +104,7 @@ export function Hero() {
         <p className="text-sm opacity-80 sm:text-base">The road to fitness starts from here</p>
         <TypewriterEffectSmooth
           words={words}
-          className="font-display [&_span]:!text-background [&_span]:font-display"
+          className="font-display [&_span]:!text-foreground [&_span]:font-display"
         />
         <p className="mx-auto mt-2 max-w-xl text-base opacity-80">
           Find the perfect class, camp, or party for your family.
