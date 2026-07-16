@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <rect x="40" y="40" width="120" height="100" fill="#f43f5e" rx="3"/>
+  <rect x="40" y="40" width="120" height="100" fill="url(#towelPattern)" rx="3"/>
+  <defs>
+    <pattern id="towelPattern" patternUnits="userSpaceOnUse" width="10" height="10">
+      <rect width="10" height="10" fill="#f43f5e"/>
+      <circle cx="5" cy="5" r="2" fill="#ffffff" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <path d="M 45 50 L 45 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 65 50 L 65 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 85 50 L 85 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 105 50 L 105 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 125 50 L 125 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 145 50 L 145 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">TOWEL</text>
+</svg>

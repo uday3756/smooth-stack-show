@@ -1,0 +1,7 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <path d="M 70 50 Q 65 60 65 75 Q 65 90 75 120 Q 75 130 85 135 L 85 145 L 95 145 L 95 135 Q 100 140 105 135 L 105 145 L 115 145 L 115 135 Q 125 130 125 120 Q 135 90 135 75 Q 135 60 130 50 Z" fill="#5b3fd6"/>
+  <path d="M 100 50 L 100 130" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <path d="M 75 75 L 125 75" stroke="#ffffff" stroke-width="1" opacity="0.2"/>
+  <text x="100" y="185" font-size="12" fill="#333333" text-anchor="middle" font-weight="bold">SHORTS</text>
+</svg>
