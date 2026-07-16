@@ -78,9 +78,9 @@ export const HERO_GRADIENT_COLORS: Record<ThemeId, string[]> = {
   neobrutalist: ["#ffe17c", "#171e19", "#ffffff", "#ffe17c"],
 };
 
-export const DEFAULT_THEME: ThemeId = "default";
+export const DEFAULT_THEME: ThemeId = "snow";
 export const DEFAULT_SHAPE: ShapeId = "straight";
-export const DEFAULT_HERO_BG: HeroBgId = "image";
+export const DEFAULT_HERO_BG: HeroBgId = "default";
 
 export const THEME_STORAGE_KEY = "omnifyhome:theme";
 export const SHAPE_STORAGE_KEY = "omnifyhome:shape";
