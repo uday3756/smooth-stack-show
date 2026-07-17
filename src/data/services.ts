@@ -4,7 +4,18 @@ interface ServiceBase {
   id: string;
   type: ServiceType;
   title: string;
+  trainer: string;
 }
+
+export const TRAINERS = [
+  "Admin nn general",
+  "Amy Meyer",
+  "Zack Fischer",
+  "Ash",
+  "Moinak Mukherjee",
+] as const;
+
+export type Trainer = (typeof TRAINERS)[number];
 
 export interface EnrollmentService extends ServiceBase {
   type: "enrollment";
@@ -56,6 +67,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "waddlers",
         type: "enrollment",
         title: "Waddlers",
+        trainer: "Amy Meyer",
         schedule: [
           { day: "Mon", time: "3:00 PM" },
           { day: "Wed", time: "3:00 PM" },
@@ -69,6 +81,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "little-bunnies",
         type: "enrollment",
         title: "Little Bunnies",
+        trainer: "Amy Meyer",
         schedule: [
           { day: "Tue", time: "10:00 AM" },
           { day: "Thu", time: "10:00 AM" },
@@ -81,6 +94,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "champions",
         type: "enrollment",
         title: "Champions",
+        trainer: "Zack Fischer",
         schedule: [
           { day: "Mon", time: "5:00 PM" },
           { day: "Wed", time: "5:00 PM" },
@@ -100,6 +114,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "summer",
         type: "camp",
         title: "Summer Camp",
+        trainer: "Zack Fischer",
         dateRange: "Jul 1 – Aug 30",
         priceMin: "$5.00",
         priceMax: "$10.00",
@@ -109,6 +124,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "winter",
         type: "camp",
         title: "Winter Camp",
+        trainer: "Ash",
         dateRange: "Dec 20 – Jan 5",
         priceMin: "$8.00",
         priceMax: "$15.00",
@@ -118,6 +134,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "spring-break",
         type: "camp",
         title: "Spring Break",
+        trainer: "Ash",
         dateRange: "Mar 25 – Apr 5",
         priceMin: "$6.00",
         priceMax: "$12.00",
@@ -133,6 +150,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "birthday",
         type: "party",
         title: "Birthday Party",
+        trainer: "Moinak Mukherjee",
         tiers: [{ name: "VIP", price: "$199.00" }],
         fromPrice: "$199.00",
       },
@@ -140,6 +158,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "themed",
         type: "party",
         title: "Themed Party",
+        trainer: "Moinak Mukherjee",
         tiers: [{ name: "Superhero", price: "$249.00" }],
         fromPrice: "$249.00",
       },
@@ -147,6 +166,7 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
         id: "graduation",
         type: "party",
         title: "Graduation Party",
+        trainer: "Amy Meyer",
         tiers: [{ name: "Deluxe", price: "$299.00" }],
         fromPrice: "$299.00",
       },
@@ -156,15 +176,15 @@ export const SERVICE_SECTIONS: ServiceSection[] = [
     id: "products",
     heading: "Products",
     services: [
-      { id: "t-shirts", type: "product", title: "T Shirts", optionsCount: 9, fromPrice: "$5.00", image: "/tshirt.svg" },
-      { id: "water-bottles", type: "product", title: "Water Bottles", optionsCount: 5, fromPrice: "$12.00", image: "/waterbottle.svg" },
-      { id: "gym-bags", type: "product", title: "Gym Bags", optionsCount: 4, fromPrice: "$29.99", image: "/gymbag.svg" },
-      { id: "resistance-bands", type: "product", title: "Resistance Bands", optionsCount: 6, fromPrice: "$8.99", image: "/resistanceband.svg" },
-      { id: "yoga-mats", type: "product", title: "Yoga Mats", optionsCount: 3, fromPrice: "$19.99", image: "/yogamat.svg" },
-      { id: "towels", type: "product", title: "Gym Towels", optionsCount: 4, fromPrice: "$9.99", image: "/towel.svg" },
-      { id: "baseball-caps", type: "product", title: "Baseball Caps", optionsCount: 7, fromPrice: "$14.99", image: "/cap.svg" },
-      { id: "shorts", type: "product", title: "Athletic Shorts", optionsCount: 8, fromPrice: "$24.99", image: "/shorts.svg" },
-      { id: "shaker-bottles", type: "product", title: "Protein Shakers", optionsCount: 5, fromPrice: "$11.99", image: "/shakerbottle.svg" },
+      { id: "t-shirts", type: "product", title: "T Shirts", optionsCount: 9, fromPrice: "$5.00", image: "/tshirt.svg", trainer: "Admin nn general" },
+      { id: "water-bottles", type: "product", title: "Water Bottles", optionsCount: 5, fromPrice: "$12.00", image: "/waterbottle.svg", trainer: "Admin nn general" },
+      { id: "gym-bags", type: "product", title: "Gym Bags", optionsCount: 4, fromPrice: "$29.99", image: "/gymbag.svg", trainer: "Ash" },
+      { id: "resistance-bands", type: "product", title: "Resistance Bands", optionsCount: 6, fromPrice: "$8.99", image: "/resistanceband.svg", trainer: "Amy Meyer" },
+      { id: "yoga-mats", type: "product", title: "Yoga Mats", optionsCount: 3, fromPrice: "$19.99", image: "/yogamat.svg", trainer: "Amy Meyer" },
+      { id: "towels", type: "product", title: "Gym Towels", optionsCount: 4, fromPrice: "$9.99", image: "/towel.svg", trainer: "Zack Fischer" },
+      { id: "baseball-caps", type: "product", title: "Baseball Caps", optionsCount: 7, fromPrice: "$14.99", image: "/cap.svg", trainer: "Moinak Mukherjee" },
+      { id: "shorts", type: "product", title: "Athletic Shorts", optionsCount: 8, fromPrice: "$24.99", image: "/shorts.svg", trainer: "Zack Fischer" },
+      { id: "shaker-bottles", type: "product", title: "Protein Shakers", optionsCount: 5, fromPrice: "$11.99", image: "/shakerbottle.svg", trainer: "Admin nn general" },
     ],
   },
 ];
