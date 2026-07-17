@@ -97,7 +97,7 @@ export const StickyScroll = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.18 }}
-              className="mt-2 text-sm leading-relaxed text-background/80"
+              className="mt-2 text-sm leading-relaxed text-foreground/75"
             >
               {item.description}
             </motion.p>
