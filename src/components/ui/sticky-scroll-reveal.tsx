@@ -35,15 +35,18 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  // Use the theme's foreground tone for every card so the section reads as one
-  // consistent dark block instead of three slightly different blacks.
-  const backgroundColors = ["var(--foreground)", "var(--foreground)", "var(--foreground)"];
+  // Instead of a harsh pure-black block, tint the panel ~12% darker than the
+  // page background so it always sits comfortably on the current skin.
+  const panelBg =
+    "color-mix(in oklab, var(--background) 88%, var(--foreground))";
+  const backgroundColors = [panelBg, panelBg, panelBg];
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)",
-    "linear-gradient(to bottom right, #ec4899, #6366f1)",
-    "linear-gradient(to bottom right, #f97316, #eab308)",
-    "linear-gradient(to bottom right, #8b5cf6, #22d3ee)",
+    "linear-gradient(135deg, #06b6d4, #10b981)",
+    "linear-gradient(135deg, #ec4899, #6366f1)",
+    "linear-gradient(135deg, #f97316, #eab308)",
+    "linear-gradient(135deg, #8b5cf6, #22d3ee)",
   ];
+
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
 
@@ -60,8 +63,9 @@ export const StickyScroll = ({
           as a normal card (photo on top, text below) in the page flow. */}
       <div
         className={cn("flex flex-col gap-6 rounded-2xl p-5 sm:hidden", className)}
-        style={{ backgroundColor: "var(--foreground)" }}
+        style={{ backgroundColor: panelBg }}
       >
+
         {content.map((item, index) => (
           <motion.div
             key={item.title + index}
@@ -84,7 +88,7 @@ export const StickyScroll = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-              className="mt-4 text-xl font-bold text-background"
+              className="mt-4 font-display text-xl font-bold tracking-tight text-foreground"
             >
               {item.title}
             </motion.h2>
@@ -93,7 +97,7 @@ export const StickyScroll = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.18 }}
-              className="mt-2 text-sm leading-relaxed text-background/80"
+              className="mt-2 text-sm leading-relaxed text-foreground/75"
             >
               {item.description}
             </motion.p>
@@ -119,14 +123,14 @@ export const StickyScroll = ({
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                className="text-xl font-bold text-background sm:text-2xl"
+                className="font-display text-xl font-bold tracking-tight text-foreground sm:text-3xl"
               >
                 {item.title}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                className="mt-4 max-w-sm text-sm leading-relaxed text-background/80 sm:mt-8 sm:text-base"
+                className="mt-4 max-w-sm text-sm leading-relaxed text-foreground/75 sm:mt-8 sm:text-base"
               >
                 {item.description}
               </motion.p>
