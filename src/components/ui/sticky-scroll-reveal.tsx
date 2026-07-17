@@ -63,8 +63,9 @@ export const StickyScroll = ({
           as a normal card (photo on top, text below) in the page flow. */}
       <div
         className={cn("flex flex-col gap-6 rounded-2xl p-5 sm:hidden", className)}
-        style={{ backgroundColor: "var(--foreground)" }}
+        style={{ backgroundColor: panelBg }}
       >
+
         {content.map((item, index) => (
           <motion.div
             key={item.title + index}
