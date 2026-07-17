@@ -35,15 +35,18 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  // Use the theme's foreground tone for every card so the section reads as one
-  // consistent dark block instead of three slightly different blacks.
-  const backgroundColors = ["var(--foreground)", "var(--foreground)", "var(--foreground)"];
+  // Instead of a harsh pure-black block, tint the panel ~12% darker than the
+  // page background so it always sits comfortably on the current skin.
+  const panelBg =
+    "color-mix(in oklab, var(--background) 88%, var(--foreground))";
+  const backgroundColors = [panelBg, panelBg, panelBg];
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)",
-    "linear-gradient(to bottom right, #ec4899, #6366f1)",
-    "linear-gradient(to bottom right, #f97316, #eab308)",
-    "linear-gradient(to bottom right, #8b5cf6, #22d3ee)",
+    "linear-gradient(135deg, #06b6d4, #10b981)",
+    "linear-gradient(135deg, #ec4899, #6366f1)",
+    "linear-gradient(135deg, #f97316, #eab308)",
+    "linear-gradient(135deg, #8b5cf6, #22d3ee)",
   ];
+
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
 
